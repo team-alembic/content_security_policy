@@ -27,6 +27,7 @@ defmodule ContentSecurityPolicy.Directive do
     | :sandbox
     | :script_src
     | :style_src
+    | :worker_src
 
   @valid_directives Policy.__struct__()
                     |> Map.keys()
@@ -54,6 +55,7 @@ defmodule ContentSecurityPolicy.Directive do
   def validate_directive!(:sandbox), do: :ok
   def validate_directive!(:script_src), do: :ok
   def validate_directive!(:style_src), do: :ok
+  def validate_directive!(:worker_src), do: :ok
 
   def validate_directive!(directive) do
     raise ArgumentError, """
